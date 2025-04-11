@@ -1,0 +1,182 @@
+/* Floating Toggler Button */
+.chatbot-toggler {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  background: rgb(147 51 234 / var(--tw-bg-opacity, 1));
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Icon inside toggler */
+.chatbot-toggler .material-symbols-outlined {
+  font-size: 28px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* Main Chatbot Container */
+.chatbot {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 360px;
+  max-height: 600px;
+  display: none;
+  flex-direction: column;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 999;
+}
+
+/* Show chatbot when active */
+body.show-chatbot .chatbot,
+.show-chatbot .chatbot {
+  display: flex;
+}
+
+/* Chatbot Header */
+.chatbot header {
+  background: #111827;
+  color: #fff;
+  padding: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Close button in header */
+.close-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Chatbox Scroll Area */
+.chatbox {
+  list-style: none;
+  padding: 16px;
+  overflow-y: auto;
+  flex-grow: 1;
+  background: #f9fafb;
+}
+
+/* Each Chat Row */
+.chat {
+  margin-bottom: 16px;
+}
+
+/* Incoming Bot Messages */
+.chat.incoming {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+/* Bot Icon */
+.chat.incoming span {
+  font-size: 24px;
+  color: rgb(147 51 234 / var(--tw-bg-opacity, 1));
+}
+
+/* Chat Bubble */
+.chat.outgoing {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.chat.outgoing p {
+  background: #e0e7ff;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 15px;
+  max-width: 80%;
+  width: fit-content;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+/* Bot message wraps text */
+.chat.incoming p {
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+/* Chat Input Area */
+.chat-input {
+  padding: 12px;
+  border-top: 1px solid #e5e7eb;
+  background: #fff;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Textarea for user input */
+.chat-input textarea {
+  width: 100%;
+  border: none;
+  resize: none;
+  outline: none;
+  font-size: 14px;
+  padding: 8px;
+  border-radius: 8px;
+  background: #f3f4f6;
+}
+
+/* Send Button */
+#send-btn {
+  background: rgb(147 51 234 / var(--tw-bg-opacity, 1));
+  color: #fff;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Suggestions Button Wrapper */
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  max-width: 100%;
+}
+
+/* Individual Suggestion Button */
+.suggest-btn {
+  flex-shrink: 0;
+  background: #e0e7ff;
+  border: 1px solid #c7d2fe;
+  color: #3730a3;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+
+.suggest-btn:hover {
+  background: #c7d2fe;
+}
