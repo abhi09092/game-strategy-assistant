@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat History - Gaming Strategy Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+    
+    <style>
+        .user-message {
+            background-color: #313131;
+            border-left: 4px solid #3b82f6;
+        }
+        .ai-message {
+            background-color: #4b4b4b;
+            border-left: 4px solid #8b5cf6;
+        }
+        .dark .user-message {
+            background-color: #1e3a8a;
+            border-left: 4px solid #60a5fa;
+        }
+        .dark .ai-message {
+            background-color: #4c1d95;
+            border-left: 4px solid #a78bfa;
+        }
+        .search-highlight {
+            background-color: yellow;
+            color: black;
+            padding: 0 2px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 min-h-screen flex flex-col">
+    <!-- Header with Logo and Back Button -->
+    <header class="bg-white dark:bg-gray-800 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <a href="perfect.html" class="flex items-center">
+                    <img class="h-10 w-auto" src="images/hero.png" alt="Gaming Strategy Assistant">
+                    <span class="ml-2 text-xl font-bold text-gray-800 dark:text-white">Gaming Strategy Assistant</span>
+                </a>
+            </div>
+            <a href="perfect.html" class="flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
+                <span class="material-symbols-outlined mr-1">arrow_back</span>
+                Back to Home
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow p-6">
+        <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+            <div class="flex flex-col gap-4 mb-6">
+                <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Your Chat History</h1>
+                
+                <!-- Search and Filter Controls -->
+                <div class="flex flex-col gap-4">
+                    <!-- Search Input -->
+                    <div class="relative">
+                        <input type="text" id="searchInput" placeholder="Search messages..." 
+                               class="w-full px-4 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600">
+                        <span class="material-symbols-outlined absolute right-3 top-2.5 text-gray-400">search</span>
+                    </div>
+                    
+                    <!-- Filter Controls -->
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <!-- Date Filter Dropdown -->
+                        <select id="dateFilter" class="flex-grow px-4 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600">
+                            <option value="all">All Dates</option>
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                            <option value="custom">Custom Date Range</option>
+                        </select>
+                        
+                        <!-- Clear Button -->
+                        <button onclick="clearHistory()" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors whitespace-nowrap">
+                            Clear All
+                        </button>
+                    </div>
+                    
+                    <!-- Custom Date Range (hidden by default) -->
+                    <div id="customDateRange" class="hidden flex flex-col sm:flex-row items-center gap-3 p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                        <div class="flex items-center gap-2 w-full sm:w-auto">
+                            <label for="startDate" class="whitespace-nowrap">From:</label>
+                            <input type="date" id="startDate" class="px-3 py-2 border rounded-lg dark:bg-gray-600 dark:border-gray-500 w-full">
+                        </div>
+                        <div class="flex items-center gap-2 w-full sm:w-auto">
+                            <label for="endDate" class="whitespace-nowrap">To:</label>
+                            <input type="date" id="endDate" class="px-3 py-2 border rounded-lg dark:bg-gray-600 dark:border-gray-500 w-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="historyContent" class="space-y-4">
+                <!-- History will be loaded here -->
+            </div>
+            
+            <div id="emptyState" class="text-center py-10">
+                <span class="material-symbols-outlined text-gray-400 dark:text-gray-500 text-6xl">history</span>
+                <p class="mt-4 text-gray-500 dark:text-gray-400">No chat history found</p>
+                <a href="perfect.html" class="mt-4 inline-flex items-center px-4 py-2 bg-purple-600/75 text-white rounded hover:bg-purple-700/75 transition-colors">
+                    <span class="material-symbols-outlined mr-2">chat</span>
+                    Start a New Chat
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <img class="h-8 w-auto mr-2" src="images/hero.png" alt="Gaming Strategy Assistant">
+                    <span class="text-lg font-semibold">Gaming Strategy Assistant</span>
+                </div>
+            </div>
+            <div class="mt-4 text-center md:text-left text-gray-400 text-sm">
+                © 2025 Gaming Strategy Assistant. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let allHistory = [];
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load history and setup event listeners
+            loadHistory();
+            
+            // Setup search and filter event listeners
+            document.getElementById('searchInput').addEventListener('input', filterHistory);
+            document.getElementById('dateFilter').addEventListener('change', function() {
+                const customDateRange = document.getElementById('customDateRange');
+                if (this.value === 'custom') {
+                    customDateRange.classList.remove('hidden');
+                    // Set default dates (today - 7 days)
+                    const endDate = new Date();
+                    const startDate = new Date();
+                    startDate.setDate(endDate.getDate() - 7);
+                    
+                    document.getElementById('startDate').valueAsDate = startDate;
+                    document.getElementById('endDate').valueAsDate = endDate;
+                } else {
+                    customDateRange.classList.add('hidden');
+                }
+                filterHistory();
+            });
+            
+            document.getElementById('startDate').addEventListener('change', filterHistory);
+            document.getElementById('endDate').addEventListener('change', filterHistory);
+        });
+
+        function loadHistory() {
+            allHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+            filterHistory(); // This will display the history
+        }
+
+        function filterHistory() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const dateFilter = document.getElementById('dateFilter').value;
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+            
+            let filteredHistory = [...allHistory];
+            
+            // Apply date filtering
+            if (dateFilter !== 'all') {
+                const now = new Date();
+                let start, end;
+                
+                switch(dateFilter) {
+                    case 'today':
+                        start = new Date(now.setHours(0, 0, 0, 0));
+                        end = new Date(now.setHours(23, 59, 59, 999));
+                        break;
+                    case 'week':
+                        start = new Date(now.setDate(now.getDate() - now.getDay()));
+                        start.setHours(0, 0, 0, 0);
+                        end = new Date(start);
+                        end.setDate(start.getDate() + 6);
+                        end.setHours(23, 59, 59, 999);
+                        break;
+                    case 'month':
+                        start = new Date(now.getFullYear(), now.getMonth(), 1);
+                        end = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+                        end.setHours(23, 59, 59, 999);
+                        break;
+                    case 'custom':
+                        if (startDate && endDate) {
+                            start = new Date(startDate);
+                            end = new Date(endDate);
+                            end.setHours(23, 59, 59, 999);
+                        }
+                        break;
+                }
+                
+                if (start && end) {
+                    filteredHistory = filteredHistory.filter(item => {
+                        const itemDate = new Date(item.timestamp);
+                        return itemDate >= start && itemDate <= end;
+                    });
+                }
+            }
+            
+            // Apply search term filtering
+            if (searchTerm) {
+                filteredHistory = filteredHistory.filter(item => 
+                    item.message.toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            displayHistory(filteredHistory);
+        }
+
+        function displayHistory(history) {
+            const historyContent = document.getElementById('historyContent');
+            const emptyState = document.getElementById('emptyState');
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            
+            if (history.length === 0) {
+                emptyState.classList.remove('hidden');
+                historyContent.classList.add('hidden');
+                return;
+            }
+            
+            emptyState.classList.add('hidden');
+            historyContent.classList.remove('hidden');
+            historyContent.innerHTML = '';
+            
+            // Group by date
+            const groupedHistory = {};
+            history.forEach(item => {
+                const date = new Date(item.timestamp).toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                if (!groupedHistory[date]) {
+                    groupedHistory[date] = [];
+                }
+                groupedHistory[date].push(item);
+            });
+            
+            // Display grouped by date (newest first)
+            Object.entries(groupedHistory).reverse().forEach(([date, messages]) => {
+                const dateHeader = document.createElement('h3');
+                dateHeader.className = 'text-lg font-semibold text-gray-700 dark:text-gray-300 mt-6 mb-3';
+                dateHeader.textContent = date;
+                historyContent.appendChild(dateHeader);
+                
+                messages.reverse().forEach(item => {
+                    const messageDiv = document.createElement('div');
+                    messageDiv.className = `p-4 rounded-lg mb-3 ${item.isUser ? 'user-message' : 'ai-message'}`;
+                    
+                    // Highlight search terms in message
+                    let displayMessage = item.message;
+                    if (searchTerm) {
+                        const regex = new RegExp(searchTerm, 'gi');
+                        displayMessage = displayMessage.replace(regex, 
+                            match => `<span class="search-highlight">${match}</span>`);
+                    }
+                    
+                    messageDiv.innerHTML = `
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-medium ${item.isUser ? 'text-blue-600 dark:text-blue-300' : 'text-purple-600 dark:text-purple-300'}">
+                                ${item.isUser ? 'You' : 'AI Assistant'}
+                            </span>
+                            <span class="text-xs text-gray-500 dark:text-gray-400">
+                                ${new Date(item.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                            </span>
+                        </div>
+                        <p class="text-gray-800 dark:text-gray-200 whitespace-pre-wrap">${displayMessage}</p>
+                    `;
+                    historyContent.appendChild(messageDiv);
+                });
+            });
+        }
+
+        function clearHistory() {
+            if (confirm('Are you sure you want to clear all chat history? This cannot be undone.')) {
+                localStorage.setItem('chatHistory', JSON.stringify([]));
+                allHistory = [];
+                filterHistory();
+            }
+        }
+    </script>
+</body>
+</html>

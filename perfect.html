@@ -32,6 +32,9 @@
     <script src="https://unpkg.com/htmx-ext-json-enc@2.0.1/json-enc.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
 
+
+    
+
   </head>
 <body class="h-screen flex flex-col">
   <!-- Navbar -->
@@ -51,9 +54,15 @@
         <div class="hidden md:flex space-x-6 items-center text-sm font-medium text-gray-600 dark:text-gray-300">
           <a href="perfect.html" class="hover:text-purple-600 dark:hover:text-purple-400">Home</a>
           <a href="#chatbot" onclick="document.querySelector('.chatbot-toggler').click()" class="hover:text-purple-600 dark:hover:text-purple-400">Chatbot</a>
+            <a href="history .html" class="hover:text-purple-600 dark:hover:text-purple-400">History</a>
+            <a href="#team" class="hover:text-purple-600 dark:hover:text-purple-400">Team</a>
           <a href="#faq" class="hover:text-purple-600 dark:hover:text-purple-400">FAQ</a>
           <a href="#features" class="hover:text-purple-600 dark:hover:text-purple-400">Sections</a>
         </div>
+
+       <!------ history--->
+
+       
   
         <!-- Optional mobile menu toggle (hamburger) -->
         <button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700" aria-controls="mobile-menu" aria-expanded="false">
@@ -214,6 +223,77 @@
 </section>
 <!-- End Hero Section -->
 
+
+ <!-- Team Section -->
+<section id="team" class="bg-gray-50 dark:bg-gray-800 py-12">
+    <div class="max-w-screen-xl px-4 mx-auto lg:px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                Meet Our Team
+            </h2>
+            <p class="mt-4 max-w-2xl text-xl text-gray-500 dark:text-gray-400 mx-auto">
+                The brilliant minds behind Gaming Strategy Assistant
+            </p>
+        </div>
+
+        <div class="grid gap-8 lg:gap-12 sm:grid-cols-2">
+            <!-- Team Member 1 -->
+            <div class="text-center">
+                <img class="mx-auto h-40 w-40 rounded-full object-cover shadow-lg" 
+                     src="images/team1.jpeg" alt="Alex Johnson">
+                <h3 class="mt-6 text-lg font-semibold text-gray-900 dark:text-white">Abhishek Sharma</h3>
+                <p class="text-purple-600 dark:text-purple-400">Web Design & Interface</p>
+                <p class="mt-2 text-gray-600 dark:text-gray-400">
+                    ID:12308064<br>
+                    Lead designer and front-end developer, responsible for the user interface and experience of our platform.
+                </p>
+                <div class="mt-4 flex justify-center space-x-4">
+                    <!-- <a href="#" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                        </svg>
+                    </a> -->
+                    <a href="https://www.linkedin.com/in/abhishek-sharma-entrepreneur/" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                        <span class="sr-only">LinkedIn</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="text-center">
+                <img class="mx-auto h-40 w-40 rounded-full object-cover shadow-lg" 
+                     src="images/team2.jpg" alt="Sarah Chen">
+                <h3 class="mt-6 text-lg font-semibold text-gray-900 dark:text-white">Panav Chahar</h3>
+                <p class="text-purple-600 dark:text-purple-400">API Integration</p>
+                <p class="mt-2 text-gray-600 dark:text-gray-400">
+                    ID:12313137<br>
+                    Backend developer specializing in API integration , ensuring seamless communication between the chatbot and chess platforms.
+                </p>
+                <div class="mt-4 flex justify-center space-x-4">
+                    <!-- <a href="#" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                        </svg>
+                    </a> -->
+                    <a href="#" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                        <span class="sr-only">LinkedIn</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Team Section -->
+
+
 <!-- FAQ Section -->
 <section id="faq" class="bg-white dark:bg-gray-900">
     <div class="max-w-screen-xl px-4 py-8 mx-auto lg:py-16 lg:px-6">
@@ -335,6 +415,8 @@
     </div>
 </section>
 <!-- End FAQ Section -->
+
+
 
 <!-- JavaScript -->
 <script>
