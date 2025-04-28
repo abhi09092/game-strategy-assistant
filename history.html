@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat History - Gaming Strategy Assistant</title>
+    <title>Chess Strategy Assistant</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
-    
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/hero.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/hero.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/hero.png">
+    <link rel="manifest" href="/images/hero.png">
+    <link rel="mask-icon" href="/images/hero.png" color="#ffffff">
     <style>
         .user-message {
             background-color: #313131;
@@ -37,14 +41,18 @@
     <header class="bg-white dark:bg-gray-800 shadow-sm">
         <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
             <div class="flex items-center space-x-4">
-                <a href="perfect.html" class="flex items-center">
-                    <img class="h-10 w-auto" src="images/hero.png" alt="Gaming Strategy Assistant">
-                    <span class="ml-2 text-xl font-bold text-gray-800 dark:text-white">Gaming Strategy Assistant</span>
+                <a href="index.html" class="flex items-center">
+                    <img class="h-10 w-auto" src="images/hero.png" alt="Chess Strategy Assistant">
+                    <span class="ml-2 text-xl font-bold text-gray-800 dark:text-white">Chess Strategy Assistant</span>
                 </a>
             </div>
-            <a href="perfect.html" class="flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
-                <span class="material-symbols-outlined mr-1">arrow_back</span>
+            <a href="index.html" class="flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
+                <span class="material-symbols-outlined mr-1">🏠</span>
                 Back to Home
+            </a>
+            <a href="chatbot.html" class="flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
+                <span class="material-symbols-outlined mr-1">🤖</span>
+                Chatbot
             </a>
         </div>
     </header>
@@ -98,14 +106,22 @@
             <div id="historyContent" class="space-y-4">
                 <!-- History will be loaded here -->
             </div>
-            
+           
+           
             <div id="emptyState" class="text-center py-10">
                 <span class="material-symbols-outlined text-gray-400 dark:text-gray-500 text-6xl">history</span>
                 <p class="mt-4 text-gray-500 dark:text-gray-400">No chat history found</p>
-                <a href="perfect.html" class="mt-4 inline-flex items-center px-4 py-2 bg-purple-600/75 text-white rounded hover:bg-purple-700/75 transition-colors">
+                <a href="chatbot.html" class="mt-4 inline-flex items-center px-4 py-2 bg-purple-600/75 text-white rounded hover:bg-purple-700/75 transition-colors">
                     <span class="material-symbols-outlined mr-2">chat</span>
                     Start a New Chat
                 </a>
+            </div>
+            <div id="paginationControls" class="flex justify-center mt-6 space-x-4">
+                <div class="flex items-center space-x-4"></div>
+                    <button id="prevPage" onclick="changePage(-1)" class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-purple-600" disabled>Previous</button>
+                    <span id="currentPage" class="text-gray-700 dark:text-gray-300 text-lg text-center">1</span>
+                    <button id="nextPage" onclick="changePage(1)" class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-purple-600">Next</button>
+                </div>
             </div>
         </div>
     </main>
@@ -115,12 +131,12 @@
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="flex items-center mb-4 md:mb-0">
-                    <img class="h-8 w-auto mr-2" src="images/hero.png" alt="Gaming Strategy Assistant">
-                    <span class="text-lg font-semibold">Gaming Strategy Assistant</span>
+                    <img class="h-8 w-auto mr-2" src="images/hero.png" alt="Chess Strategy Assistant">
+                    <span class="text-lg font-semibold">Chess Strategy Assistant</span>
                 </div>
             </div>
             <div class="mt-4 text-center md:text-left text-gray-400 text-sm">
-                © 2025 Gaming Strategy Assistant. All rights reserved.
+                © 2025 Chess Strategy Assistant. All rights reserved.
             </div>
         </div>
     </footer>
@@ -289,5 +305,8 @@
             }
         }
     </script>
+    <script src="api.js"></script>
+    <script src="script.js"></script>
+    <script src="page.js"></script>
 </body>
 </html>

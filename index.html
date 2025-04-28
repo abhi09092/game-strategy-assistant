@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Strategy Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/hero.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/hero.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/hero.png">
+    <link rel="manifest" href="/images/hero.png">
+    <link rel="mask-icon" href="/images/hero.png" color="#ffffff">
+</head>
+<body class="h-screen flex flex-col">
+  <!-- Navbar -->
+  <header class="fixed top-0 w-full z-10">
+    <nav class="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
+      <div class="flex flex-wrap items-center justify-between px-4 mx-auto">
+        <!-- Logo and Title -->
+        <a href="index.html" class="flex items-center">
+          <img class="h-8 w-auto mr-2" src="images/hero.png" alt="Chess Strategy Assistant">
+          <span class="self-center sm:text-lg md:text-2xl lg:text-2xl font-semibold whitespace-nowrap dark:text-white">
+            Chess Strategy Assistant
+          </span>
+        </a>
+  
+        <!-- Navbar Menu -->
+        <div class="hidden md:flex space-x-6 items-center text-sm font-medium text-gray-600 dark:text-gray-300">
+          <a href="index.html" class="hover:text-purple-600 dark:hover:text-purple-400">Home</a>
+          <a href="chatbot.html" class="hover:text-purple-600 dark:hover:text-purple-400">Chatbot</a>
+          <a href="history.html" class="hover:text-purple-600 dark:hover:text-purple-400">History</a>
+          <a href="#team" class="hover:text-purple-600 dark:hover:text-purple-400">Team</a>
+          <a href="#faq" class="hover:text-purple-600 dark:hover:text-purple-400">FAQ</a>
+        </div>
+
+        <!-- Mobile menu toggle -->
+        <button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M3 5h14M3 10h14M3 15h14" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="bg-white dark:bg-gray-900">
+      <div class="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
+          <div class="mr-auto place-self-center lg:col-span-7">
+              <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">Chess Strategy Assistant</h1>
+              <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"><strong>Master Your Game with Chess Strategy Assistant – Your Personal AI Chess Chatbot</strong><br><br>
+                  Whether you're just starting out or already climbing the ranks, Chess Strategy Assistant helps you play smarter, not harder. Powered by AI, it delivers personalized insights, pinpoints your mistakes, and guides you toward grandmaster-level strategy—move by move.
+              </p>
+              <div class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">        
+                  <a href="chatbot.html" class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">
+                    Get Free Game Analysis Now
+                  </a>
+                </div>
+          </div>
+          <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+              <img src="images/img1.png" alt="Chess Strategy Assistant AI-powered chess Chatbot">
+          </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="bg-gray-50 dark:bg-gray-800">
+      <div class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
+          <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
+              <div class="text-gray-500 sm:text-lg dark:text-gray-400">
+                  <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Ready to level up your chess with a smart assistant by your side?</h2>
+                  <p class="mb-8 font-light lg:text-xl">Get real-time, AI-powered coaching through our interactive chatbot—analyzing your games, answering your questions, and guiding your next moves.</p>
+              </div>
+              <!-- Carousel -->
+              <div class="carousel w-full" id="carousel1">
+                  <div id="slide1" class="carousel-item relative w-full">
+                      <img src="images/img2.png" alt="Chess game analysis by AI" class="w-full" />
+                      <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                          <button class="btn btn-circle" onclick="showSlide(3, 'carousel1')">❮</button>
+                          <button class="btn btn-circle" onclick="showSlide(2, 'carousel1')">❯</button>
+                      </div>
+                  </div>
+                  <div id="slide2" class="carousel-item relative w-full">
+                      <img src="images/img4.png" alt="Chess strategy insights with Chess Strategy Assistant" class="w-full" />
+                      <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                          <button class="btn btn-circle" onclick="showSlide(1, 'carousel1')">❮</button>
+                          <button class="btn btn-circle" onclick="showSlide(3, 'carousel1')">❯</button>
+                      </div>
+                  </div>
+                  <div id="slide3" class="carousel-item relative w-full">
+                      <img src="images/img6.png" alt="AI-driven chess improvement platform" class="w-full" />
+                      <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                          <button class="btn btn-circle" onclick="showSlide(2, 'carousel1')">❮</button>
+                          <button class="btn btn-circle" onclick="showSlide(1, 'carousel1')">❯</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Second Row with Carousel on the Left and Text on the Right -->
+          <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
+              <!-- Carousel -->
+              <div class="carousel w-full" id="carousel2">
+                  <div id="slide1" class="carousel-item relative w-full">
+                      <img src="images/img3.png" alt="Chess Strategy Assistant chat-based coaching" class="w-full" />
+                      <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                          <button class="btn btn-circle" onclick="showSlide(3, 'carousel2')">❮</button>
+                          <button class="btn btn-circle" onclick="showSlide(2, 'carousel2')">❯</button>
+                      </div>
+                  </div>
+                  <div id="slide2" class="carousel-item relative w-full">
+                      <img src="images/img7.png" alt="AI chatbot providing chess feedback" class="w-full" />
+                      <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                          <button class="btn btn-circle" onclick="showSlide(1, 'carousel2')">❮</button>
+                          <button class="btn btn-circle" onclick="showSlide(3, 'carousel2')">❯</button>
+                      </div>
+                  </div>
+                  <div id="slide3" class="carousel-item relative w-full">
+                      <img src="images/img8.png" alt="Interactive and personalized chess training AI" class="w-full" />
+                      <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                          <button class="btn btn-circle" onclick="showSlide(2, 'carousel2')">❮</button>
+                          <button class="btn btn-circle" onclick="showSlide(1, 'carousel2')">❯</button>
+                      </div>
+                  </div>
+              </div>
+              <div class="text-gray-500 sm:text-lg dark:text-gray-400">
+                  <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Explore More Features</h2>
+                  <p class="mb-8 font-light lg:text-xl">Discover the powerful AI chatbot tools built into Chess Strategy Assistant—get instant feedback, personalized tips, and game insights, all through an intuitive conversational interface designed to boost your chess performance.</p>
+              </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="bg-gray-50 dark:bg-gray-800 py-12">
+      <div class="max-w-screen-xl px-4 mx-auto lg:px-6">
+          <div class="text-center mb-12">
+              <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                  Meet Our Team
+              </h2>
+              <p class="mt-4 max-w-2xl text-xl text-gray-500 dark:text-gray-400 mx-auto">
+                  The brilliant minds behind Chess Strategy Assistant
+              </p>
+          </div>
+
+          <div class="grid gap-8 lg:gap-12 sm:grid-cols-2">
+              <!-- Team Member 1 -->
+              <div class="text-center">
+                  <img class="mx-auto h-40 w-40 rounded-full object-cover shadow-lg" 
+                       src="images/team1.jpeg" alt="Team Member 1">
+                  <h3 class="mt-6 text-lg font-semibold text-gray-900 dark:text-white">Abhishek Sharma</h3>
+                  <p class="text-purple-600 dark:text-purple-400">Web Design & Interface</p>
+                  <p class="mt-2 text-gray-600 dark:text-gray-400">
+                      ID: 12308064<br>
+                      Lead designer and front-end developer, responsible for the user interface and experience of our platform.
+                  </p>
+                  <div class="mt-4 flex justify-center space-x-4">
+                      <a href="https://www.linkedin.com/in/abhishek-sharma-entrepreneur/" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                          <span class="sr-only">LinkedIn</span>
+                          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                              <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path>
+                          </svg>
+                      </a>
+                  </div>
+              </div>
+
+              <!-- Team Member 2 -->
+              <div class="text-center">
+                  <img class="mx-auto h-40 w-40 rounded-full object-cover shadow-lg" 
+                       src="images/team2.jpeg" alt="Team Member 2">
+                  <h3 class="mt-6 text-lg font-semibold text-gray-900 dark:text-white">Panav Chahar</h3>
+                  <p class="text-purple-600 dark:text-purple-400">API Integration</p>
+                  <p class="mt-2 text-gray-600 dark:text-gray-400">
+                      ID: 12313137<br>
+                      Backend developer specializing in API integration, ensuring seamless communication between the chatbot and chess platforms.
+                  </p>
+                  <div class="mt-4 flex justify-center space-x-4">
+                      <a href="https://www.linkedin.com/in/pranav-chahar?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                          <span class="sr-only">LinkedIn</span>
+                          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                              <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path>
+                          </svg>
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="bg-white dark:bg-gray-900">
+      <div class="max-w-screen-xl px-4 py-8 mx-auto lg:py-16 lg:px-6">
+          <h2 class="mb-8 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Frequently Asked Questions</h2>
+          <div class="space-y-4">
+              
+              <!-- FAQ Items -->
+              <h3 id="accordion-flush-heading-1">
+                  <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" data-accordion-target="#accordion-flush-body-1" aria-expanded="false" aria-controls="accordion-flush-body-1">
+                      <span>What makes Chess Strategy Assistant different from other chess tools?</span>
+                      <svg data-accordion-icon="" class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  </button>
+              </h3>
+              <div id="accordion-flush-body-1" class="hidden" aria-labelledby="accordion-flush-heading-1">
+                  <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                      <p class="text-gray-500 dark:text-gray-400"><strong>Chess Strategy Assistant</strong> goes beyond basic analysis. It uses advanced AI to provide real-time feedback, targeted drills, and custom learning paths based on your actual performance. It's like having a personal chess coach available 24/7.</p>
+                  </div>
+              </div>
+              
+              <h3 id="accordion-flush-heading-2">
+                  <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" data-accordion-target="#accordion-flush-body-2" aria-expanded="false" aria-controls="accordion-flush-body-2">
+                      <span>Do I need a Chess.com or Lichess account to use it?</span>
+                      <svg data-accordion-icon="" class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  </button>
+              </h3>
+              <div id="accordion-flush-body-2" class="hidden" aria-labelledby="accordion-flush-heading-2">
+                  <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                      <p class="text-gray-500 dark:text-gray-400">Yes! You'll need a free account on either platform. Chess Strategy Assistant connects securely to your profiles to analyze your games and generate personalized feedback.</p>
+                  </div>
+              </div>
+              
+              <h3 id="accordion-flush-heading-3">
+                  <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" data-accordion-target="#accordion-flush-body-3" aria-expanded="false" aria-controls="accordion-flush-body-3">
+                      <span>Is there a mobile app for Chess Strategy Assistant?</span>
+                      <svg data-accordion-icon="" class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  </button>
+              </h3>
+              <div id="accordion-flush-body-3" class="hidden" aria-labelledby="accordion-flush-heading-3">
+                  <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                      <p class="text-gray-500 dark:text-gray-400">Currently, we offer a fully responsive web platform optimized for mobile. A dedicated mobile app is in development and will be launching soon for Android and iOS users.</p>
+                  </div>
+              </div>
+              
+              <h3 id="accordion-flush-heading-4">
+                  <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" data-accordion-target="#accordion-flush-body-4" aria-expanded="false" aria-controls="accordion-flush-body-4">
+                      <span>Does Chess Strategy Assistant include an AI chatbot for coaching?</span>
+                      <svg data-accordion-icon="" class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  </button>
+              </h3>
+              <div id="accordion-flush-body-4" class="hidden" aria-labelledby="accordion-flush-heading-4">
+                  <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                      <p class="text-gray-500 dark:text-gray-400">Yes! Our built-in AI chatbot acts as your personal chess mentor. You can ask it questions about your games, chess concepts, or training recommendations. It provides instant, intelligent responses—whether you're reviewing a loss or planning your next move strategy.</p>
+                  </div>
+              </div>
+              
+              <h3 id="accordion-flush-heading-5">
+                  <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" data-accordion-target="#accordion-flush-body-5" aria-expanded="false" aria-controls="accordion-flush-body-5">
+                      <span>What can the Chess Strategy Assistant chatbot help me with?</span>
+                      <svg data-accordion-icon="" class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  </button>
+              </h3>
+              <div id="accordion-flush-body-5" class="hidden" aria-labelledby="accordion-flush-heading-5">
+                  <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                      <p class="text-gray-500 dark:text-gray-400">The AI chatbot can analyze your past games, explain tactical mistakes, suggest better moves, and even quiz you on positions to reinforce learning. It's like having a coach available 24/7.</p>
+                  </div>
+              </div>
+
+              <h3 id="accordion-flush-heading-6">
+                  <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" data-accordion-target="#accordion-flush-body-6" aria-expanded="false" aria-controls="accordion-flush-body-6">
+                      <span>Can I chat with the assistant during a live game?</span>
+                      <svg data-accordion-icon="" class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  </button>
+              </h3>
+              <div id="accordion-flush-body-6" class="hidden" aria-labelledby="accordion-flush-heading-6">
+                  <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                      <p class="text-gray-500 dark:text-gray-400">
+                          While the assistant doesn't interact during live games to ensure fair play, you can review completed games instantly afterward to get feedback, insights, and suggestions for improvement.
+                      </p>
+                  </div>
+              </div>
+              <h3 id="accordion-flush-heading-7">
+                  <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" data-accordion-target="#accordion-flush-body-7" aria-expanded="false" aria-controls="accordion-flush-body-7">
+                      <span>How accurate is the chatbot's game analysis?</span>
+                      <svg data-accordion-icon="" class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  </button>
+              </h3>
+              <div id="accordion-flush-body-7" class="hidden" aria-labelledby="accordion-flush-heading-7">
+                  <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                      <p class="text-gray-500 dark:text-gray-400">
+                          The chatbot uses advanced chess engines and AI models to deliver accurate, detailed feedback. It highlights inaccuracies, blunders, and missed opportunities—helping you make smarter moves in future games.
+                      </p>
+                  </div>
+              </div>
+              <h3 id="accordion-flush-heading-8">
+                  <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" data-accordion-target="#accordion-flush-body-8" aria-expanded="false" aria-controls="accordion-flush-body-8">
+                      <span>What skill levels is this platform designed for?</span>
+                      <svg data-accordion-icon="" class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  </button>
+              </h3>
+              <div id="accordion-flush-body-8" class="hidden" aria-labelledby="accordion-flush-heading-8">
+                  <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                      <p class="text-gray-500 dark:text-gray-400">
+                          🧩 New to Chess – Learn the basics and key rules through step-by-step guidance.<br>
+                          🧠 Intermediate – Strengthen your middlegame and decision-making with pattern recognition. <br>
+                          🔍 Advanced & Tournament Players – Dive into deep positional evaluations and preparation. <br>
+                          🎓 Coaches – Access powerful tools to track, assess, and train students efficiently. <br>
+                      </p>
+                  </div>
+              </div>
+          </div>   
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer bg-neutral text-neutral-content items-center p-4">
+      <aside class="grid-flow-col items-center">
+        <img class="h-8 w-auto mr-2 " src="images/hero.png" alt="Chess Strategy Assistant" />
+        <p>© 2025 Chess Strategy Assistant™. All Rights Reserved.</p>
+      </aside>
+    </footer>
+
+  <script>
+      function showSlide(slideNumber, carouselId) {
+          const slides = document.querySelectorAll(`#${carouselId} .carousel-item`);
+          slides.forEach((slide, index) => {
+              slide.classList.toggle('hidden', index !== slideNumber - 1);
+          });
+      }
+
+      document.querySelectorAll('[data-accordion-target]').forEach(button => {
+          button.addEventListener('click', () => {
+              const target = document.querySelector(button.getAttribute('data-accordion-target'));
+              const expanded = button.getAttribute('aria-expanded') === 'true';
+              button.setAttribute('aria-expanded', !expanded);
+              target.classList.toggle('hidden', expanded);
+          });
+      });
+
+      // Mobile menu toggle
+      document.querySelector('[data-collapse-toggle="mobile-menu"]').addEventListener('click', function() {
+          const mobileMenu = document.getElementById('mobile-menu');
+          mobileMenu.classList.toggle('hidden');
+      });
+  </script>
+</body>
+</html>
